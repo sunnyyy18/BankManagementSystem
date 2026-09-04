@@ -28,11 +28,15 @@ class Customer{
         System.out.println("Amount deposited succesfully");
     }
     void withdraw(double amount){
-        if(amount<=0){
-            System.out.println("Invalid amount entered");
-            return ;
+        if (amount <= 0) {
+            System.out.println("Invalid amount");
         }
-        balance-=amount;
+        else if (amount > balance) {
+            System.out.println("Insufficient balance");
+        }
+        else {
+            balance -= amount;
+        }
         System.out.println("Amount withdrawal successfully");
     }
     void checkBalance(){
@@ -57,13 +61,11 @@ public class Main{
                     System.out.println("Enter the amount you want to add :");
                     double Addamount = scan.nextDouble();
                     alpha.deposit(Addamount);
-                    System.out.println("Amount added successfully");
                     break;
                 case 2:
                     System.out.println("Enter amount to be withdraw :");
                     double withamount = scan.nextDouble();
                     alpha.withdraw(withamount);
-                    System.out.println("Withdrawl successfull");
                     break;
                 case 3:
                     alpha.checkBalance();
